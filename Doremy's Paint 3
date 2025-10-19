@@ -1,0 +1,42 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define forn(i, a, n) for (long long i = a; i < n; i++)
+#define int long long
+#define endl '\n'
+
+// const int MAXN = 200100;
+// const int MOD = 1000000007;
+
+void solve() {
+  int n;
+  cin >> n;
+  vector<int> a(n);
+  forn(i, 0, n) cin >> a[i];
+  map<int, int> mp;
+  forn(i, 0, n) mp[a[i]]++;
+  if (mp.size() >= 3)
+    cout << "No" << endl;
+  else {
+    int f1 = mp.begin()->second;
+    int f2 = mp.rbegin()->second;
+    if (f1 == f2)
+      cout << "Yes" << endl;
+    else if (n % 2 == 1 && abs(f1 - f2) == 1)
+      cout << "Yes" << endl;
+    else
+      cout << "No" << endl;
+  }
+}
+
+int32_t main() {
+  ios::sync_with_stdio(false);
+  cin.tie(0);
+  cout.tie(0);
+  int T = 1;
+  cin >> T; // Comment this out in case number of test cases are not to be
+            // taken as input
+  for (int I = 1; I <= T; I++) {
+    solve();
+  }
+  return 0;
+}
