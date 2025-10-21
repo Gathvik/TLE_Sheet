@@ -1,0 +1,41 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define forn(i, a, n) for (long long i = a; i < n; i++)
+#define int long long
+#define endl '\n'
+
+// const int MAXN = 200100;
+// const int MOD = 1000000007;
+
+void solve() {
+  int n, m;
+  cin >> n >> m;
+  string x, s;
+  cin >> x >> s;
+  int ans = 0;
+  bool found = 0;
+  forn(i, 0, 10) {
+    if (x.find(s) != string::npos) {
+      cout << ans << "\n";
+      found = 1;
+      break;
+    }
+    x += x;
+    ans++;
+  }
+  if (!found)
+    cout << -1 << "\n";
+}
+
+int32_t main() {
+  ios::sync_with_stdio(false);
+  cin.tie(0);
+  cout.tie(0);
+  int T = 1;
+  cin >> T; // Comment this out in case number of test cases are not to be
+            // taken as input
+  for (int I = 1; I <= T; I++) {
+    solve();
+  }
+  return 0;
+}
